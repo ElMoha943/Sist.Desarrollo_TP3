@@ -1,14 +1,14 @@
 # Sist.Desarrollo_TP3
 UWART Test 2
 
-#Temas teóricos a desarrollar:
+# Temas teóricos a desarrollar:
 - Principio de funcionamiento de la UART. Protocolo RS232. Registros de control del
 microcontrolador RCSTA, TXSTA, RCREG, TXREG. Interrupciones por UART
 - Procesamiento de arreglos de caracteres. Búsqueda de un carácter específico. Función
 atoi(...)
 - Especificación del formato de comandos y datos
 
-#Objetivos:
+# Objetivos:
 - Implementar una librería (Terminal.h y Terminal.c) que implemente las funciones
 necesarias para enviar y recibir cadenas de caracteres por puerto serie.
 - void RxChar(char c)
@@ -30,7 +30,7 @@ Limpia el array de comandos y datos RxArray. Posteriormente a ejecutar esta func
 un llamado a cualquiera de las funciones anteriores devolvería el valor -1 indicando
 que no hay comandos o datos reconocidos.
 
-#Comandos y rango de argumentos
+# Comandos y rango de argumentos
 El microcontrolador debe enviar al terminal remoto el prompt “SDD>” para indicar al usuario
 que se encuentra listo para recibir comandos desde el terminal remoto. Los comandos de
 terminal de escritura poseen la siguiente sintaxis

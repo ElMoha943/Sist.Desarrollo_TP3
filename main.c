@@ -27,6 +27,7 @@ void main(void) {
     ANSEL=0;
     ANSELH=0;
     TRISB=0;
+    
     //CONFIGURACION DE UWART
     TRISCbits.TRISC6=0;
     BRG16=0;
@@ -35,7 +36,8 @@ void main(void) {
     TXSTAbits.TXEN=1;
     RCSTAbits.CREN=1;
     RCSTAbits.SPEN=1;
-    TXREG="SSD>";
+    
+    EnviarTexto("SSD>");
     while(1)
     {
         //SI RECIBE INFORMACION
@@ -46,36 +48,37 @@ void main(void) {
         if (recibido==1){
             switch(ParseCommand())
             {
-                case 1:
-                    if(ParsedData()<7&&ParsedData()>0)
-                        TXREG="OK";
+                case 1://SETOUT
+                    if(ParsedData()<7&&ParsedData()>0) //VALIDA NUMERO DE PARAMETROS.
+                        EnviarTexto("OK");
                     else
-                        TXREG="OUT OF RANGE";
+                        EnviarTexto("OUT OF RANGE");
                     break;
-                case 2:
+                case 2://GETIN
                     if(ParsedData()<4&&ParsedData()>0)
-                        TXREG="OK";
+                        EnviarTexto("OK");
                     else
-                        TXREG="OUT OF RANGE";
+                        EnviarTexto("OUT OF RANGE");
                     break;
-                case 3:
+                case 3://SETREG
                     if(ParsedData()<10&&ParsedData()>0)
-                        TXREG="OK";
+                        EnviarTexto("OK");
                     else
-                        TXREG="OUT OF RANGE";
+                        EnviarTexto("OUT OF RANGE");
                     break;
-                case 4:
+                case 4://GETREG
                     if(ParsedData()<10&&ParsedData()>0)
-                        TXREG="OK";
+                        EnviarTexto("OK");
                     else
-                        TXREG="OUT OF RANGE";
+                        EnviarTexto("OUT OF RANGE");
                     break;
                 default:
-                    TXREG="COMANDO DESCONOCIDO";
+                    EnviarTexto("CMD NOT FOUND");
                     break;
             }
+            ClearRxArray();
             recibido=0;
-            TXREG="SSD>";
+            EnviarTexto("SSD>");
         }
     }
 }

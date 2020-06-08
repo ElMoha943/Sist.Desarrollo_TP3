@@ -5,6 +5,14 @@
 #include <string.h>
 #include "terminal.h"
 
+void EnviarTexto(char palabra[]){
+    int i;
+    for(i=0;i<strlen(palabra);i++){
+        TXREG=palabra[i];
+    }
+    TXREG='\n';
+}
+
 void RxChar(char c){
     if(c!=0x0D){ //DETECTA EL CARACTER ES UN ENTER
         RxBuffer[j]=c; //RELLENA LA CADERA

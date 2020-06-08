@@ -17,6 +17,7 @@ void RxChar(char c);
 signed int ParseCommand(void);
 signed int ParsedData(void);
 void ClearRxArray(void);
+void EnviarTexto(char palabra[]);
 
 
 

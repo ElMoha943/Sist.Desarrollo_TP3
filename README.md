@@ -1,5 +1,5 @@
 # Sist.Desarrollo_TP3
-UWART Test 2
+UART Avanzado
 
 # Temas teóricos a desarrollar:
 - Principio de funcionamiento de la UART. Protocolo RS232. Registros de control del

@@ -19,8 +19,8 @@ void RxChar(char c){
         j++;
     }
     else {
-        strcpy(RxBuffer,RxArray);
-        strcpy(RxClear,RxBuffer);
+        strcpy(RxArray,RxBuffer);
+        strcpy(RxArray,RxClear);
         j=0;
         recibido=1;
     }
@@ -68,5 +68,5 @@ signed int ParsedData(void){
 }
 
 void ClearRxArray(void){
-    strcpy(RxClear,RxArray); 
+    strcpy(RxArray,RxClear); 
 }

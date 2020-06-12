@@ -50,8 +50,21 @@ signed int ParseCommand(void){
 }
 
 signed int ParsedData(void){
-    int caca=0;
-    caca=atoi(RxArray); //EXTRAE EL ARGUMENTO DEL COMANDO
+    int caca=0, cosa=0, temp=0, k=0, i=0;
+    char cadena[];
+    cosa=strlen(RxArray);
+    //EXTRAE EL ARGUMENTO DEL COMANDO
+    for(i=0;i<cosa;i++){
+        if (temp==1){
+            cadena[k]=RxArray[i];
+            k++;
+        }
+        if(RxArray[i]==':'){
+            temp=1;
+        }
+    }
+    //PASO DE CHAR A INT
+    caca=atoi(cadena); 
     return caca;
 }
 

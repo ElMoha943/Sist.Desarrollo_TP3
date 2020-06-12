@@ -19,8 +19,5 @@ signed int ParsedData(void);
 void ClearRxArray(void);
 void EnviarTexto(char palabra[]);
 
-
-
-
 #endif	/* TERMINAL_H */
 

@@ -14,12 +14,11 @@ void EnviarTexto(char palabra[]){
 }
 
 void RxChar(char c){
-    if(c!=0x0D){ //DETECTA EL CARACTER ES UN ENTER
+    if(c!='\r'){ //DETECTA EL CARACTER ES UN ENTER
         RxBuffer[j]=c; //RELLENA LA CADERA
         j++;
     }
-    else
-    {
+    else {
         strcpy(RxBuffer,RxArray);
         strcpy(RxClear,RxBuffer);
         j=0;

@@ -19,10 +19,9 @@ void RxChar(char c){
         j++;
     }
     else {
-        strcpy(RxBuffer,RxArray);
-        strcpy(RxClear,RxBuffer);
+        strcpy_s(RxArray,RxBuffer);
+        strcpy_s(RxBuffer,RxClear);
         j=0;
-        recibido=1;
     }
 }
 
@@ -35,6 +34,7 @@ signed int ParseCommand(void){
         cadena[i]=RxArray[i];
         i++;
     }
+	cadena[i] = '\0';
     //IDENTIFICACION DE COMANDO
     if(strcmp(cadena,"SETOUT")==0)
         return 1;
@@ -50,7 +50,7 @@ signed int ParseCommand(void){
 
 signed int ParsedData(void){
     int caca=0, cosa=0, temp=0, k=0, i=0;
-    char cadena[];
+    char cadena[10];
     cosa=strlen(RxArray);
     //EXTRAE EL ARGUMENTO DEL COMANDO
     for(i=0;i<cosa;i++){
@@ -68,5 +68,5 @@ signed int ParsedData(void){
 }
 
 void ClearRxArray(void){
-    strcpy(RxClear,RxArray); 
+    strcpy_s(RxArray,RxClear); 
 }
